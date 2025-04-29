@@ -117,6 +117,55 @@ npm install
 npm run dev
 ```
 
+## 개발환경 구축 가이드
+
+### 필수 소프트웨어
+- **Node.js**: v18.0.0 이상 (프론트엔드 개발)
+- **Python**: v3.10 이상 (백엔드 개발)
+- **Git**: 최신 버전 (버전 관리)
+- **VS Code** (권장 코드 에디터)
+
+### VS Code 확장 프로그램
+- ESLint: JavaScript/TypeScript 린팅
+- Prettier: 코드 포맷팅
+- Python: Python 언어 지원
+- Error Lens: 인라인 오류 표시
+- GitLens: Git 통합 기능 강화
+- Copilot: AI 코드 어시스턴트 (선택사항)
+
+### 환경 변수 설정
+1. 프로젝트 루트에 `.env.local` 파일 생성:
+```
+NEXT_PUBLIC_API_BASE_URL=http://localhost:8000
+```
+
+2. 백엔드에 `.env` 파일 생성 (필요시):
+```
+DEBUG=True
+CORS_ORIGINS=http://localhost:3000
+```
+
+### 커스텀 스크립트
+프론트엔드 개발 시 다음 스크립트를 활용할 수 있습니다:
+```bash
+# 린팅 실행
+npx eslint --fix .
+
+# 포맷팅 실행
+npx prettier --write .
+```
+
+### 트러블슈팅
+
+#### 일반적인 문제 해결
+- **포트 충돌**: 8000번 또는 3000번 포트가 이미 사용 중인 경우, 다른 포트를 지정하여 실행
+- **모듈 오류**: `npm install` 또는 `pip install -r requirements.txt` 재실행
+- **CORS 오류**: 백엔드의 CORS 설정이 프론트엔드 URL을 허용하는지 확인
+
+#### 시스템별 주의사항
+- **Windows**: 백엔드 가상환경 활성화는 `venv\Scripts\activate` 명령 사용
+- **Mac/Linux**: 권한 문제 발생 시 `chmod +x` 명령으로 실행 권한 부여
+
 ## 코드 품질 관리
 
 - ESLint와 Prettier를 사용한 코드 스타일 통일
